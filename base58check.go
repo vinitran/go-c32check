@@ -45,7 +45,7 @@ func Decode(data string) (string, string, error) {
 
 	for i := range checksumBytes {
 		if checksumBytes[i] != checksum.Sum(nil)[i] {
-			return "", "", fmt.Errorf("Invalid checksum")
+			return "", "", fmt.Errorf("invalid checksum")
 		}
 	}
 

@@ -36,18 +36,17 @@ func C32encode(inputHex string, minLength int) string {
 			curC32Digit := rune(c32[currentCode+nextLowBits])
 			carry = nextBits
 			res = append([]rune{curC32Digit}, res...)
-		} else {
-			carry = 0
+			continue
 		}
+		carry = 0
 	}
 
 	C32leadingZeros := 0
 	for _, r := range res {
 		if r != '0' {
 			break
-		} else {
-			C32leadingZeros++
 		}
+		C32leadingZeros++
 	}
 
 	res = res[C32leadingZeros:]
@@ -116,9 +115,8 @@ func C32decode(c32input string, minLength int) string {
 	for _, r := range res {
 		if r != '0' {
 			break
-		} else {
-			hexLeadingZeros++
 		}
+		hexLeadingZeros++
 	}
 
 	res = res[hexLeadingZeros-(hexLeadingZeros%2):]
