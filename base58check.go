@@ -7,8 +7,6 @@ import (
 	"github.com/btcsuite/btcutil/base58"
 )
 
-const ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-
 func Encode(data string, prefix string) string {
 	dataBytes, err := hex.DecodeString(data)
 	if err != nil {
